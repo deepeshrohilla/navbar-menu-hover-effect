@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Lato:300,400,700');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    outline: none;
+    border: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #345;
+}
+
+header {
+    overflow: hidden;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: repeat(var(--items), 1fr);
+    position: relative;
+    background-color: #0b151f;
+    font-weight: 300;
+}
+
+.links a {
+    font-size: 2em;
+    color: #425a72;
+    padding: .75em;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+
+.links a:hover {
+    color: #adf;
+}
+
+.links .line {
+    background-color: #adf;
+    height: 1px;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(1, 2, 0.2, 0.6);
+    position: absolute;
+    bottom: 0;
+    left: var(--left, calc(100%/var(--items) * (var(--index) - 1)));
+    width: var(--width, calc(100% / var(--items)));
+    --index: 0;
+}
+
+.links a:hover~.line {
+    opacity: 1;
+}
+
+.links a:nth-of-type(1):hover~.line {
+    --index: 1;
+}
+
+.links a:nth-of-type(2):hover~.line {
+    --index: 2;
+}
+
+.links a:nth-of-type(3):hover~.line {
+    --index: 3;
+}
+
+.links a:nth-of-type(4):hover~.line {
+    --index: 4;
+}
+
+.links a:nth-of-type(5):hover~.line {
+    --index: 5;
+}
